@@ -25,13 +25,12 @@ useEffect(()=>{
 
   return (
     <Container fluid>
-        <Row className='mt-2'>
-            <Col lg={10} md={10} style={{paddingLeft: 0}}>
-                <video autoPlay={true} loop={true} muted>
+      <h1 className='text-center'><b>Digital Information Board</b></h1>
+        <Row className='mt-1'>
+            <video autoPlay loop={true} muted className='col-lg-10'>
                     <source src={videoloop} type='video/mp4' />
-                </video>
-            </Col>
-            <Col lg={3} md={10} style={{backgroundColor: '#d87000'}}>
+            </video>
+            <Col style={{backgroundColor: '#d87000'}}>
                 <h1 className='text-center'>BAC Activities</h1>
                 <Row className='h-50'>
                     <Col lg={12}>
