@@ -3,28 +3,39 @@ import moment from 'moment/moment';
 import { useEffect, useState } from 'react'  
 import { Alert, Col, Container, Row, Table } from 'react-bootstrap';
 import videoloop from '../src/videoloop.mp4';
+import { FullScreen } from '@chiragrupani/fullscreen-react';
 
 function App() {
   const [currentDateTime, setCurrentDateTime] = useState(new Date())
   const [preBidConferences, setPreBidConferences] = useState([]);
   const [openingOfBids, setOpeningOfBids] = useState([]);
+  const [fullscreenState, setFullscreenState] = useState(false);
+  const delay = ms => new Promise(res => setTimeout(res, ms));
 
 const getBacActivities = () => {
   axios.get('http://127.0.0.1:8000/api/contract_schedule/bidding')
   .then(res => {
-      // console.log(res.data.pre_bid_conference[0])
+      console.log(res.data.pre_bid_conference[0])
       setPreBidConferences(res.data.pre_bid_conference)
       setOpeningOfBids(res.data.opening_of_bids)
   })
 }
+
+const setToFullScreen = async () => {
+  await delay(5000);
+  setFullscreenState(true)
+  console.log('okokok')
+}
   
 useEffect(()=>{
   getBacActivities()
+  setToFullScreen();
   setInterval(() => setCurrentDateTime(new Date()), 1000)
 }, [])
 
   return (
-    <Container fluid>
+    <FullScreen isFullScreen={fullscreenState}>
+      <Container fluid>
       <h1 className='text-center'><b>Digital Information Board</b></h1>
         <Row className='mt-1'>
             <video autoPlay loop={true} muted className='col-lg-10'>
@@ -100,6 +111,7 @@ useEffect(()=>{
             </Col>
         </Row>
     </Container>
+    </FullScreen>
   )
 }
 
