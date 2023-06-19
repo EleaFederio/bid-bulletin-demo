@@ -25,7 +25,7 @@ useEffect(()=>{
 
   return (
     <Container fluid>
-      <h1 className='text-center'><b>Digital Information Board</b></h1>
+      <h1 className='text-center'><b>Information Board</b></h1>
         <Row className='mt-1'>
             <video autoPlay loop={true} muted className='col-lg-10'>
                     <source src={videoloop} type='video/mp4' />
