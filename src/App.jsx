@@ -10,6 +10,7 @@ function App() {
     const [preBidConferences, setPreBidConferences] = useState([]);
     const [openingOfBids, setOpeningOfBids] = useState([]);
     const delay = ms => new Promise(res => setTimeout(res, ms));
+    const [reloadState, setReloadState] = useState(false);
 
     const getBacActivities = () => {
     axios.get('https://dpwhsorsogonsecond.localto.net/api/contract_schedule/bidding')
@@ -21,8 +22,12 @@ function App() {
     }
 
     const playBackgroundMusic = async () => {
-        await delay(20000)
-        window.location.reload(false);
+        if(reloadState === false){
+            setReloadState(true);
+            console.log(reloadState);
+            await delay(20000)
+            getBacActivities();
+        }
     }
 
     useEffect(()=>{
