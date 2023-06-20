@@ -98,9 +98,9 @@ function App() {
             </Row>
             <Row>
                 <Col lg={12} className='mt-3' style={{padding: 0}}>
-                    <Alert variant='primary' style={{paddingTop: 0, paddingBottom: 0, marginBottom: 0, borderRadius: 0, backgroundColor: '#0d0963', padding: 0}}>
+                    <Alert variant='primary' style={{paddingTop: 0, paddingBottom: 15, marginBottom: 0, borderRadius: 0, backgroundColor: '#0d0963', padding: 0}}>
                         <h1 className='text-center' style={{marginBottom: 0, color: 'white'}}>
-                            <b style={{fontSize:100}}>{moment(currentDateTime).format('MMMM D, yyyy (dddd)')} - {currentDateTime.toLocaleTimeString()}</b>
+                            <b style={{fontSize:75}}>{moment(currentDateTime).format('MMMM D, yyyy (dddd)')} - {currentDateTime.toLocaleTimeString()}</b>
                         </h1>
                     </Alert>
                 </Col>
