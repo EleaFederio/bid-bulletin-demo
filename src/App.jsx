@@ -10,7 +10,7 @@ function App() {
   const [openingOfBids, setOpeningOfBids] = useState([]);
 
 const getBacActivities = () => {
-  axios.get('https://nflut.localto.net/api/contract_schedule/bidding')
+  axios.get('https://dpwhsorsogonsecond.localto.net/api/contract_schedule/bidding')
   .then(res => {
       // console.log(res.data.pre_bid_conference[0])
       setPreBidConferences(res.data.pre_bid_conference)
