@@ -9,6 +9,7 @@ function App() {
     const [currentDateTime, setCurrentDateTime] = useState(new Date())
     const [preBidConferences, setPreBidConferences] = useState([]);
     const [openingOfBids, setOpeningOfBids] = useState([]);
+    const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const getBacActivities = () => {
     axios.get('https://dpwhsorsogonsecond.localto.net/api/contract_schedule/bidding')
@@ -19,8 +20,9 @@ function App() {
     })
     }
 
-    const playBackgroundMusic = () => {
-        new Audio().play(backgroundMusic);
+    const playBackgroundMusic = async () => {
+        await delay(20000)
+        window.location.reload(false);
     }
 
     useEffect(()=>{
